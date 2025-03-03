@@ -20,4 +20,4 @@ jobs:
       - name: Upload Data
         run: |
           echo "This file is created by Rudra for GitHub Actions demo" > index.html
-          aws s3 cp ./index.html s2://myfirstbucketrudra
+          aws s3 cp ./index.html s2://myfirstbucketrudra/
