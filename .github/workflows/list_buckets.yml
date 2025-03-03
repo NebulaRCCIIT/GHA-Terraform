@@ -1,0 +1,23 @@
+name: AWS S3
+on: push
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  UploadContentToS3Bucket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckoutSCM
+        uses: actions/checkout@v3
+
+      - name: GetAWSCredentials
+        uses: aws-actions/configure-aws-credentials
+        with:
+          aws-region: "us-east-1"
+          role-to-assume: "GHA-OIDC-Role"
+          role-session-name: "githubrolesession"
+
+      - name: Upload Data
+        run: |
+          echo "This file is created by Rudra for GitHub Actions demo" > index.html
+          aws s3 cp ./index.html s2://myfirstbucketrudra
