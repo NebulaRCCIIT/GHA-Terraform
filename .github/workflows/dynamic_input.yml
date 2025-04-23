@@ -1,8 +1,8 @@
 name: Dynamic Input 
 on:
-  push:
-    branches:
-      - dynamic-input
+#  push:
+#    branches:
+#      - dynamic-input
   workflow_dispatch:
     inputs:
       version:
