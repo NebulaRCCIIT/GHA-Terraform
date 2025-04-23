@@ -1,0 +1,28 @@
+name: Dynamic Input 
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Select the version'
+        required: true
+        default: v2
+        type: choice
+        options: []
+
+jobs:
+  generate-options:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate Options
+      id: generate
+      run: |
+          echo "v1" >> options.txt
+          echo "v2" >> options.txt
+          echo "v3" >> options.txt
+          options=$(cat options.txt)
+          echo "options=$options" >> $GITHUB_OUTPUT
+    - name: Set Dynamic Input
+      id: set-input
+      run: |
+          echo "version=${{ steps.generate.outputs.options }}" >> $GITHUB_ENV
+  
