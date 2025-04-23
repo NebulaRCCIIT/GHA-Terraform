@@ -1,8 +1,8 @@
 name: Dynamic Input 
 on:
-#  push:
-#    branches:
-#      - dynamic-input
+  push:
+    branches:
+      - dynamic-input
   workflow_dispatch:
     inputs:
       version:
@@ -10,22 +10,12 @@ on:
         required: true
         default: "v2"
         type: choice
-        options: []
+        options: ["v1","v2"]
 
 jobs:
   generate-options:
     runs-on: ubuntu-latest
     steps:
-    - name: Generate Options
-      id: generate
-      run: |
-          echo "v1" >> options.txt
-          echo "v2" >> options.txt
-          echo "v3" >> options.txt
-          options=$(cat options.txt)
-          echo "options=$options" >> $GITHUB_OUTPUT
-    - name: Set Dynamic Input
-      id: set-input
-      run: |
-          echo "version=${{ steps.generate.outputs.options }}" >> $GITHUB_ENV
+    - name: Get Input
+      run: echo "Selected Input= ${{ github.event.inputs.version }}
   
