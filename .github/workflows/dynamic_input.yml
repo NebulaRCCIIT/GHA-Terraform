@@ -7,10 +7,9 @@ on:
         required: true
         default: "v2"
         type: choice
-        options: ["v1","v2"]
-  push:
-    branches:
-      - dynamic-input
+        options:
+          - 'v1'
+          - 'v2'
 
 
 jobs:
