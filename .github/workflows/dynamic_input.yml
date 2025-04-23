@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get Input
-      run: echo "Selected Input= ${{ github.event.inputs.version }}"
+      run: echo "Selected Input"
   
