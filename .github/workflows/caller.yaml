@@ -9,6 +9,8 @@ jobs:
   call-child-workflow:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
     - name: Call Child Job
       uses: ./.github/workflows/child.yaml
     - name: Post Call
