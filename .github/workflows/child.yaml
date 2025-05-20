@@ -18,4 +18,4 @@ jobs:
       run: echo "Hello ${{inputs.caller_name}}"
     - name: Return Output to caller
       id: out
-      run: echo "child_output=$(date;echo "Hola")" >> $GITHUB_OUTPUT
+      run: echo "child_output=$(date)" >> $GITHUB_OUTPUT
