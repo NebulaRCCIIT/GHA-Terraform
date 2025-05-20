@@ -6,7 +6,8 @@ on:
         type: string
         required: true
     outputs:
-      child_output: ${{jobs.print-message.outputs.child_output}}
+      child_output:
+        value: ${{jobs.print-message.outputs.child_output}}
 jobs:
   print-message:
     runs-on: ubuntu-latest
