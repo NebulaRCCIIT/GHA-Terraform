@@ -11,3 +11,5 @@ jobs:
     steps:
     - name: Call Child Job
       uses: ./.github/workflows/child.yaml
+    - name: Post Call
+      run: echo "I am back to caller.yaml"
