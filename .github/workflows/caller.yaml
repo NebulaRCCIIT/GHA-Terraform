@@ -8,3 +8,5 @@ on:
 jobs:
   call-child-workflow:
     uses: ./.github/workflows/child.yaml
+    with:
+      caller: 'Rudra'
