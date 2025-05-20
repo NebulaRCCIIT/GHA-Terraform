@@ -16,4 +16,4 @@ jobs:
     steps:
     - name: Print child message
       shell: bash
-      run: echo -e "Child Message is \n ${{needs.call-child-workflow.outputs.child_output}}"
+      run: echo -e "Child Message is\n ${{needs.call-child-workflow.outputs.child_output}}"
