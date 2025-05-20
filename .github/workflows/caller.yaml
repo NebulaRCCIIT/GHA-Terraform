@@ -10,3 +10,10 @@ jobs:
     uses: ./.github/workflows/child.yaml
     with:
       caller_name: 'Rudrabrata'
+  print-child-message:
+    needs: call-child-workflow
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print child message
+      shell: bash
+      run: echo -e "Child Message is\n ${{needs.call-child-workflow.outputs.child_output"
