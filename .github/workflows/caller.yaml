@@ -7,11 +7,4 @@ on:
     paths: .github/workflows/caller.yaml
 jobs:
   call-child-workflow:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
-    - name: Call Child Job
-      uses: ./.github/workflows/child.yaml
-    - name: Post Call
-      run: echo "I am back to caller.yaml"
+    uses: ./.github/workflows/child.yaml
