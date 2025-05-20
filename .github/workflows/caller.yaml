@@ -1,0 +1,13 @@
+name: Caller Workflow
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - test-PR-branch
+    paths: .github/workflows/caller.yaml
+jobs:
+  call-child-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Call Child Job
+      uses: ./.github/workflows/child.yaml
