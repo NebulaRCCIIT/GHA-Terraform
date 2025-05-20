@@ -8,6 +8,11 @@ on:
 jobs:
   print-message:
     runs-on: ubuntu-latest
+    outputs:
+      child_output: ${{steps.out.outputs.child_output}}
     steps:
     - name: Print Message
       run: echo "Hello ${{inputs.caller_name}}"
+    - name: Return Output to caller
+      id: out
+      run: echo "child_output=$(date;echo "Hola")" >> $GITHUB_OUTPUT
