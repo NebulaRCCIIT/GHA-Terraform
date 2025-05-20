@@ -1,8 +1,13 @@
 name: Child Workflow
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      caller_name:
+        type: string
+        required: true
 jobs:
   print-message:
     runs-on: ubuntu-latest
     steps:
     - name: Print Message
-      run: echo "Hello Rudra"
+      run: echo "Hello ${{inputs.caller_name}}"
